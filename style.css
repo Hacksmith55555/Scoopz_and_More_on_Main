@@ -67,6 +67,7 @@ header{
     font-weight:700;
     color:var(--orange);
     font-family: 'Pacifico', cursive;
+    white-space: nowrap;
 }
 
 .logo-icon{
