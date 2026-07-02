@@ -1,0 +1,599 @@
+ /*=========================================
+  GOOGLE FONT & RESET
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#FFF8F2;
+    color:#333;
+    overflow-x:hidden;
+    line-height:1.6;
+    font-family: 'Fedoka', sans-serif
+}
+
+/*=========================================
+  COLORS
+=========================================*/
+
+:root{
+    --orange:#F58220;
+    --orange-dark:#dd6e10;
+    --cream:#FFF8F2;
+    --white:#ffffff;
+    --dark:#333;
+    --shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+/*=========================================
+  NAVBAR
+=========================================*/
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:1000;
+}
+
+.navbar{
+    height:80px;
+    background-image: url("images/waffle_Cone.jpg");
+    background-size: 100px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 60px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    /* IMPORTANT for drip */
+    position: relative;
+    overflow: visible;
+}
+
+/* logo */
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:var(--orange);
+    font-family: 'Pacifico', cursive;
+}
+
+.logo-icon{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.logo span{
+    color:#444;
+}
+
+/* nav links */
+.nav-links{
+   
+    position: absolute;
+    right: 60px;
+}
+
+.nav-links a{
+    color:#444;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:3px;
+    background:var(--orange);
+    transition:.35s;
+}
+
+.nav-links a:hover{
+    color:var(--orange);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/*=========================================
+  HAMBURGER
+=========================================*/
+
+.menu-btn{
+    display:flex;
+    font-size:34px;
+    cursor:pointer;
+    color:var(--orange);
+    transition:.3s;
+    margin-left: auto;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+.menu-btn:hover{
+    transform:scale(1.15);
+}
+
+.mobile-menu{
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+
+    background: rgba(255, 238, 224, 0.6);
+    backdrop-filter: blur(15px);
+
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+    opacity:0;
+    transform: translateY(-20px);
+    pointer-events:none;
+
+    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mobile-menu.active{
+    opacity:1;
+    transform: translateY(0);
+    pointer-events:auto;
+}
+
+.mobile-menu a{
+    display:block;
+    padding:18px 20px;
+    text-decoration:none;
+    color:#444;
+    font-size:20px;
+    border-bottom:1px solid #fcb18c;
+
+    opacity:0;
+    transform: translateY(-10px);
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu.active a{
+    opacity:1;
+    transform: translateY(0);
+}
+
+.mobile-menu.active a:nth-child(1){ transition-delay: 0.05s; }
+.mobile-menu.active a:nth-child(2){ transition-delay: 0.12s; }
+.mobile-menu.active a:nth-child(3){ transition-delay: 0.18s; }
+.mobile-menu.active a:nth-child(4){ transition-delay: 0.24s; }
+
+.mobile-menu a:hover{
+    background:var(--orange);
+    color:white;
+}
+/*=========================================
+ HERO
+=========================================*/
+
+.hero{
+    min-height:100vh;
+    background:url(images/hero.jpg);
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+.hero-content{
+    position:relative;
+    color:white;
+    text-align:center;
+    max-width:900px;
+    padding:20px;
+    animation:fadeUp 1s ease;
+}
+
+.hero-content h1{
+    font-size:70px;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.hero-content p{
+    font-size:24px;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+/*=========================================
+ BUTTONS
+=========================================*/
+
+.btn{
+    display:inline-block;
+    padding:16px 38px;
+    background:var(--orange);
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.35s;
+    box-shadow:var(--shadow);
+}
+
+.btn:hover{
+    background:var(--orange-dark);
+    transform:translateY(-4px);
+}
+
+.btn2{
+    background:white;
+    color:var(--orange);
+}
+
+.btn2:hover{
+    background:#ffe6cf;
+}
+
+/*=========================================
+ WAVE
+=========================================*/
+
+.wave{
+    margin-top:-5px;
+    line-height:0;
+}
+
+.wave svg{
+    display:block;
+    width:100%;
+    height:110px;
+}
+
+/*=========================================
+ ANIMATION
+=========================================*/
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/*=========================================
+ RESPONSIVE
+=========================================*/
+
+@media(max-width:900px){
+.hero-content h1{
+    font-size:52px;
+}
+.hero-content p{
+    font-size:20px;
+}
+}
+
+@media(max-width:768px){
+.nav-links{
+    display:none;
+}
+.menu-btn{
+    display:block;
+}
+
+
+
+.gallery-grid img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.carousel{
+    position:relative;
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.carousel-track{
+    display:flex;
+    transition:transform 0.6s ease;
+}
+
+.carousel-track img{
+    width:100%;
+    flex-shrink:0;
+    object-fit:cover;
+}
+
+/* buttons */
+.prev, .next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.4);
+    color:white;
+    border:none;
+    font-size:24px;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius:50%;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar h1{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo{
+    font-size:24px;
+}
+.hero-content h1{
+    font-size:42px;
+}
+.hero-content p{
+    font-size:18px;
+}
+.hero-buttons{
+    flex-direction:column;
+    align-items:center;
+}
+.btn{
+    width:220px;
+    text-align:center;
+}
+}
+
+@media(max-width:500px){
+.hero-content h1{
+    font-size:34px;
+}
+.hero{
+    background-position:center;
+}
+}
+
+/*=========================================
+ 🍦 ICE CREAM DRIP NAVBAR (FIXED + WORKING)
+=========================================*/
+
+
+
+.navbar::before{
+    content:"";
+    position:absolute;
+    top:-20px;   /* 👈 pushes it UP so no gap shows */
+    left:0;
+    width:100%;
+    height:80px; /* 👈 makes it taller so it covers everything */
+
+    background:#ffffff;
+    border-bottom-left-radius:60px;
+    border-bottom-right-radius:60px;
+
+    z-index:0;
+}
+
+.navbar::after{
+    content:"";
+    position:absolute;
+    top:45px;
+    left:0;
+    width:100%;
+    height:60px;
+
+    background:
+      radial-gradient(circle at 14% 0%, #ffffff 18px, transparent 19px),
+      radial-gradient(circle at 25% 10%, #ffffff 22px, transparent 23px),
+      radial-gradient(circle at 35% 0%, #ffffff 16px, transparent 17px),
+      radial-gradient(circle at 65% 12%, #ffffff 24px, transparent 25px),
+      radial-gradient(circle at 85% 0%, #ffffff 18px, transparent 19px);
+
+    background-repeat:no-repeat;
+    z-index:0;
+
+    animation: dripMove 3s ease-in-out infinite;
+}
+
+@keyframes dripMove{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(6px);
+    }
+}
+
+/* keep navbar content above drip */
+.navbar > *{
+    position:relative;
+    z-index:2;
+}
+
+section {
+    padding: 80px 20px
+}
+
+.menu-section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.menu-section h2{
+    font-size:40px;
+    margin-bottom:40px;
+    font-family:'Fredoka', sans-serif;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card .icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.about{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:40px;
+    padding:80px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.about-image img{
+    display: block;
+    width:100%;
+    max-width:400px;
+    border-radius:15px;
+}
+.about-text{
+    max-width:500px;
+}
+
+.about-text h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.gallery{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.gallery h2{
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+.contact{
+    padding:80px 20px;
+    text-align:center;
+    background:#fff3ea;
+}
+
+.contact-container{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+    max-width:900px;
+    margin:auto;
+}
+
+.contact-container div{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    min-width:250px;
+}
+
+footer{
+    background:#F58220;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    margin-top:80px;
+}
+
+footer h3{
+    margin-bottom:10px;
+}
+
+#topBtn{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--orange);
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+
+    display: none; /* JS controls visibility */
+
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
