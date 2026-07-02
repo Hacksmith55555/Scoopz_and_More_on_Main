@@ -68,6 +68,7 @@ header{
     color:var(--orange);
     font-family: 'Pacifico', cursive;
     white-space: nowrap;
+    margin: auto;
 }
 
 .logo-icon{
